@@ -17,10 +17,10 @@ namespace ProjectAss.Models
         {
         }
 
+        public virtual DbSet<TblCategory> TblCategories { get; set; }
         public virtual DbSet<Tblcustomer> Tblcustomers { get; set; }
         public virtual DbSet<Tblemployee> Tblemployees { get; set; }
         public virtual DbSet<TblfoodsDrink> TblfoodsDrinks { get; set; }
-        public virtual DbSet<Tblfoodtype> Tblfoodtypes { get; set; }
         public virtual DbSet<Tblorder> Tblorders { get; set; }
         public virtual DbSet<Tblorderdetail> Tblorderdetails { get; set; }
         public virtual DbSet<Tblpayment> Tblpayments { get; set; }
@@ -39,6 +39,26 @@ namespace ProjectAss.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<TblCategory>(entity =>
+            {
+                entity.HasKey(e => e.FoodTypeId)
+                    .HasName("PK__tblfoodt__B6ACC8D28A33319C");
+
+                entity.ToTable("tblCategory");
+
+                entity.Property(e => e.FoodTypeId).HasColumnName("food_type_id");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.TypeName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("type_name");
+            });
 
             modelBuilder.Entity<Tblcustomer>(entity =>
             {
@@ -175,26 +195,6 @@ namespace ProjectAss.Models
                     .WithMany(p => p.TblfoodsDrinks)
                     .HasForeignKey(d => d.MenuTypeId)
                     .HasConstraintName("tblfoods_drinks_ibfk_1");
-            });
-
-            modelBuilder.Entity<Tblfoodtype>(entity =>
-            {
-                entity.HasKey(e => e.FoodTypeId)
-                    .HasName("PK__tblfoodt__B6ACC8D28A33319C");
-
-                entity.ToTable("tblfoodtype");
-
-                entity.Property(e => e.FoodTypeId).HasColumnName("food_type_id");
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnName("description");
-
-                entity.Property(e => e.TypeName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("type_name");
             });
 
             modelBuilder.Entity<Tblorder>(entity =>

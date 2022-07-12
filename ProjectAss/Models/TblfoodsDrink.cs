@@ -21,7 +21,7 @@ namespace ProjectAss.Models
         public double FoodPrice { get; set; }
         public string FoodImage { get; set; }
 
-        public virtual Tblfoodtype MenuType { get; set; }
+        public virtual TblCategory MenuType { get; set; }
         public virtual ICollection<Tblorderdetail> Tblorderdetails { get; set; }
         public virtual ICollection<Tblrating> Tblratings { get; set; }
     }

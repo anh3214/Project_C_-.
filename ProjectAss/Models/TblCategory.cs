@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace ProjectAss.Models
 {
-    public partial class Tblfoodtype
+    public partial class TblCategory
     {
-        public Tblfoodtype()
+        public TblCategory()
         {
             TblfoodsDrinks = new HashSet<TblfoodsDrink>();
         }
