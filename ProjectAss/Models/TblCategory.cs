@@ -15,6 +15,7 @@ namespace ProjectAss.Models
         public int FoodTypeId { get; set; }
         public string TypeName { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
 
         public virtual ICollection<TblfoodsDrink> TblfoodsDrinks { get; set; }
     }

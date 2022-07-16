@@ -54,6 +54,10 @@ namespace ProjectAss.Models
                     .HasMaxLength(100)
                     .HasColumnName("description");
 
+                entity.Property(e => e.Image)
+                    .HasMaxLength(200)
+                    .HasColumnName("image");
+
                 entity.Property(e => e.TypeName)
                     .IsRequired()
                     .HasMaxLength(50)
