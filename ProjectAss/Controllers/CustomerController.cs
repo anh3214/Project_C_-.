@@ -2,9 +2,9 @@
 
 namespace ProjectAss.Controllers
 {
-    public class EmployeeController : Controller
+    public class CustomerController : Controller
     {
-        public IActionResult Admin(int id)
+        public IActionResult Index()
         {
             return View();
         }

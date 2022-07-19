@@ -34,7 +34,7 @@ namespace ProjectAss
                     );
                 endpoints.MapControllerRoute(
                         name: "Usrl",
-                        pattern: "{controller}/{action}"
+                        pattern: "{controller}/{action}/{id}"
                     );
             });
         }
