@@ -10811,12 +10811,13 @@ ul.products li.product, .products .owl-item > .product {
           left: 50%;
           width: 80%;
           transform: translate(-50%, -50%); }
-          .section-product-categories .categories .category a .caption h4 {
-            font-size: 7.5em;
-            margin: 0;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #fff; }
+            .section-product-categories .categories .category a .caption h4 {
+                font-size: 7.5em;
+                margin: 0;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: #ffae00;
+            }
 
 .section-products-sale-event {
   font-family: 'Yanone Kaffeesatz', sans-serif;

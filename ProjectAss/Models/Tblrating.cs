@@ -15,6 +15,6 @@ namespace ProjectAss.Models
         public int CustomerId { get; set; }
 
         public virtual Tblcustomer Customer { get; set; }
-        public virtual TblfoodsDrink Food { get; set; }
+        public virtual Tblproduct Food { get; set; }
     }
 }

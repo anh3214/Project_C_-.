@@ -18,6 +18,7 @@ namespace ProjectAss.Models
         public string FullName { get; set; }
         public string Contact { get; set; }
         public string EmailAddress { get; set; }
+        public string EmployeeImage { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
 

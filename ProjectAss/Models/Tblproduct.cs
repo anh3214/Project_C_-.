@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace ProjectAss.Models
 {
-    public partial class TblfoodsDrink
+    public partial class Tblproduct
     {
-        public TblfoodsDrink()
+        public Tblproduct()
         {
             Tblorderdetails = new HashSet<Tblorderdetail>();
             Tblratings = new HashSet<Tblrating>();
@@ -17,8 +17,7 @@ namespace ProjectAss.Models
         public int MenuTypeId { get; set; }
         public string FoodName { get; set; }
         public string FoodCategory { get; set; }
-        public string FoodSize { get; set; }
-        public double FoodPrice { get; set; }
+        public string FoodDescription { get; set; }
         public string FoodImage { get; set; }
 
         public virtual TblCategory MenuType { get; set; }

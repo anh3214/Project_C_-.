@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ProjectAss.Logics;
 using ProjectAss.Models;
+using System.Collections.Generic;
 
 namespace ProjectAss.Controllers
 {
@@ -9,43 +11,15 @@ namespace ProjectAss.Controllers
     {
         public IActionResult Index()
         {
-            return View();
-        }
-        public IActionResult Login()
-        {
-            return View("Login");
-        }
-        [HttpPost]
-        public IActionResult Login(IFormCollection coleection)
-        {
-            string summit = coleection["login"];
-            string action="";
-            if (summit != null)
+            CategoryManager cate = new CategoryManager();
+            List<TblCategory> list = cate.GetAllCategory();
+            string cus = HttpContext.Session.GetString("cus");
+            if (cus != null)
             {
-                string username = coleection["username"];
-                string password = coleection["password"];
-                string remember = coleection["rememberme"];
-                Tblcustomer cus = CustomerManager.CheckLogin(username);
-                Tblemployee emp = EmployeeManager.CheckLogin(username);
-                if (cus != null)
-                {
-                    action = "Index";
-                }
-                else if (emp != null)
-                {
-                    return RedirectToAction("Admin","Employee");
-                }
-                else
-                {
-                    action = "Login";
-                }
+                Tblcustomer a = JsonConvert.DeserializeObject<Tblcustomer>(cus);
+                ViewBag.customer = a;
             }
-            return RedirectToAction(action);
-        }
-        [HttpPost]
-        public IActionResult Register(IFormCollection coleection)
-        {
-            return RedirectToAction("Index");
+            return View(list);
         }
     }
 }

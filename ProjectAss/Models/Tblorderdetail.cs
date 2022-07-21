@@ -13,7 +13,7 @@ namespace ProjectAss.Models
         public double Amount { get; set; }
         public double TotalAmount { get; set; }
 
-        public virtual TblfoodsDrink Food { get; set; }
+        public virtual Tblproduct Food { get; set; }
         public virtual Tblorder Order { get; set; }
     }
 }

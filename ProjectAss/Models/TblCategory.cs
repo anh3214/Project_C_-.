@@ -9,7 +9,7 @@ namespace ProjectAss.Models
     {
         public TblCategory()
         {
-            TblfoodsDrinks = new HashSet<TblfoodsDrink>();
+            Tblproducts = new HashSet<Tblproduct>();
         }
 
         public int FoodTypeId { get; set; }
@@ -17,6 +17,6 @@ namespace ProjectAss.Models
         public string Description { get; set; }
         public string Image { get; set; }
 
-        public virtual ICollection<TblfoodsDrink> TblfoodsDrinks { get; set; }
+        public virtual ICollection<Tblproduct> Tblproducts { get; set; }
     }
 }

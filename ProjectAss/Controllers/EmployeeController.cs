@@ -4,7 +4,7 @@ namespace ProjectAss.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IActionResult Admin(int id)
+        public IActionResult Admin()
         {
             return View();
         }

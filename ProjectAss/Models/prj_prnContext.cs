@@ -20,10 +20,11 @@ namespace ProjectAss.Models
         public virtual DbSet<TblCategory> TblCategories { get; set; }
         public virtual DbSet<Tblcustomer> Tblcustomers { get; set; }
         public virtual DbSet<Tblemployee> Tblemployees { get; set; }
-        public virtual DbSet<TblfoodsDrink> TblfoodsDrinks { get; set; }
+        public virtual DbSet<TblfoodSize> TblfoodSizes { get; set; }
         public virtual DbSet<Tblorder> Tblorders { get; set; }
         public virtual DbSet<Tblorderdetail> Tblorderdetails { get; set; }
         public virtual DbSet<Tblpayment> Tblpayments { get; set; }
+        public virtual DbSet<Tblproduct> Tblproducts { get; set; }
         public virtual DbSet<Tblrating> Tblratings { get; set; }
         public virtual DbSet<Tblsiteinfo> Tblsiteinfos { get; set; }
 
@@ -43,7 +44,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<TblCategory>(entity =>
             {
                 entity.HasKey(e => e.FoodTypeId)
-                    .HasName("PK__tblfoodt__B6ACC8D28A33319C");
+                    .HasName("PK__tblCateg__B6ACC8D2840F57D5");
 
                 entity.ToTable("tblCategory");
 
@@ -67,11 +68,11 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblcustomer>(entity =>
             {
                 entity.HasKey(e => e.CustomerId)
-                    .HasName("PK__tblcusto__CD65CB85C5098588");
+                    .HasName("PK__tblcusto__CD65CB85554F019C");
 
                 entity.ToTable("tblcustomer");
 
-                entity.HasIndex(e => e.CustomerUsername, "UQ__tblcusto__64E4CB01BD4A7BEE")
+                entity.HasIndex(e => e.CustomerUsername, "UQ__tblcusto__64E4CB01819B6128")
                     .IsUnique();
 
                 entity.Property(e => e.CustomerId).HasColumnName("customer_id");
@@ -128,11 +129,11 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblemployee>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__tblemplo__B9BE370F031E5594");
+                    .HasName("PK__tblemplo__B9BE370FD004F81A");
 
                 entity.ToTable("tblemployee");
 
-                entity.HasIndex(e => e.Username, "UQ__tblemplo__F3DBC57265E369D3")
+                entity.HasIndex(e => e.Username, "UQ__tblemplo__F3DBC5727AC359FA")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
@@ -146,6 +147,10 @@ namespace ProjectAss.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("email_address");
+
+                entity.Property(e => e.EmployeeImage)
+                    .HasMaxLength(100)
+                    .HasColumnName("employee_image");
 
                 entity.Property(e => e.FullName)
                     .IsRequired()
@@ -163,48 +168,32 @@ namespace ProjectAss.Models
                     .HasColumnName("username");
             });
 
-            modelBuilder.Entity<TblfoodsDrink>(entity =>
+            modelBuilder.Entity<TblfoodSize>(entity =>
             {
-                entity.HasKey(e => e.FoodId)
-                    .HasName("PK__tblfoods__2F4C4DD8B06BA59C");
+                entity.HasNoKey();
 
-                entity.ToTable("tblfoods_drinks");
+                entity.ToTable("tblfood_size");
 
                 entity.Property(e => e.FoodId).HasColumnName("food_id");
-
-                entity.Property(e => e.FoodCategory)
-                    .HasMaxLength(45)
-                    .HasColumnName("food_category");
-
-                entity.Property(e => e.FoodImage)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .HasColumnName("food_image");
-
-                entity.Property(e => e.FoodName)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnName("food_name");
 
                 entity.Property(e => e.FoodPrice).HasColumnName("food_price");
 
                 entity.Property(e => e.FoodSize)
                     .IsRequired()
-                    .HasMaxLength(500)
+                    .HasMaxLength(50)
                     .HasColumnName("food_size");
 
-                entity.Property(e => e.MenuTypeId).HasColumnName("menu_type_id");
-
-                entity.HasOne(d => d.MenuType)
-                    .WithMany(p => p.TblfoodsDrinks)
-                    .HasForeignKey(d => d.MenuTypeId)
-                    .HasConstraintName("tblfoods_drinks_ibfk_1");
+                entity.HasOne(d => d.Food)
+                    .WithMany()
+                    .HasForeignKey(d => d.FoodId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblfood_s__food___38996AB5");
             });
 
             modelBuilder.Entity<Tblorder>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__tblorder__46596229DC3CDFFF");
+                    .HasName("PK__tblorder__46596229BE5B0323");
 
                 entity.ToTable("tblorder");
 
@@ -238,7 +227,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblorderdetail>(entity =>
             {
                 entity.HasKey(e => e.OrderDetailsId)
-                    .HasName("PK__tblorder__F6FB5AE49FEC08E7");
+                    .HasName("PK__tblorder__F6FB5AE434AA49F7");
 
                 entity.ToTable("tblorderdetails");
 
@@ -266,7 +255,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblpayment>(entity =>
             {
                 entity.HasKey(e => e.PaymentId)
-                    .HasName("PK__tblpayme__ED1FC9EA0830FABD");
+                    .HasName("PK__tblpayme__ED1FC9EA22289BC6");
 
                 entity.ToTable("tblpayment");
 
@@ -299,10 +288,45 @@ namespace ProjectAss.Models
                     .HasConstraintName("tblpayment_ibfk_1");
             });
 
+            modelBuilder.Entity<Tblproduct>(entity =>
+            {
+                entity.HasKey(e => e.FoodId)
+                    .HasName("PK__tblprodu__2F4C4DD8748BD74F");
+
+                entity.ToTable("tblproducts");
+
+                entity.Property(e => e.FoodId).HasColumnName("food_id");
+
+                entity.Property(e => e.FoodCategory)
+                    .HasMaxLength(45)
+                    .HasColumnName("food_category");
+
+                entity.Property(e => e.FoodDescription)
+                    .HasMaxLength(200)
+                    .HasColumnName("food_description");
+
+                entity.Property(e => e.FoodImage)
+                    .IsRequired()
+                    .HasMaxLength(45)
+                    .HasColumnName("food_image");
+
+                entity.Property(e => e.FoodName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("food_name");
+
+                entity.Property(e => e.MenuTypeId).HasColumnName("menu_type_id");
+
+                entity.HasOne(d => d.MenuType)
+                    .WithMany(p => p.Tblproducts)
+                    .HasForeignKey(d => d.MenuTypeId)
+                    .HasConstraintName("tblproducts_ibfk_1");
+            });
+
             modelBuilder.Entity<Tblrating>(entity =>
             {
                 entity.HasKey(e => e.RatingId)
-                    .HasName("PK__tblratin__D35B278B81ACE6A6");
+                    .HasName("PK__tblratin__D35B278BD29DA55E");
 
                 entity.ToTable("tblrating");
 
@@ -337,7 +361,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblsiteinfo>(entity =>
             {
                 entity.HasKey(e => e.SiteInfoId)
-                    .HasName("PK__tblsitei__866ED2E43DBB9409");
+                    .HasName("PK__tblsitei__866ED2E4FF7B9987");
 
                 entity.ToTable("tblsiteinfo");
 
