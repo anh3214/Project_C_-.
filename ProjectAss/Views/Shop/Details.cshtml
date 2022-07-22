@@ -230,7 +230,7 @@
             success: function(data) {
                 if (data == "Done") {
                     $(wrapper).append(
-                        '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Profile information updated successfully</div>'
+                        '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Add To Cart Successfully</div>'
                     );
                     setTimeout(() => {
                         $(wrapper).find('[role="alert"]').remove();
@@ -239,7 +239,7 @@
                     if (data.search("error") !== -1)
                         data.replace("error: ", "").split("|").forEach(err => $("[name='" + err + "']").addClass("is-invalid"));
                     $(wrapper).append(
-                        '<div class="snackbar show" role="alert"><i class="fa fa-times-circle text-danger"></i> There is an error while updating! Please try again later.</div>'
+                        '<div class="snackbar show" role="alert"><i class="fa fa-times-circle text-danger"></i> There is an error while Add! Please try again later.</div>'
                     );
                     setTimeout(() => {
                         $(wrapper).find('[role="alert"]').remove();

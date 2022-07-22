@@ -1,0 +1,203 @@
+﻿@using ProjectAss.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from metropolitanhost.com/themes/themeforest/html/costic/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Mar 2022 10:30:12 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pizzaro Dashboard</title>
+    <!-- Iconic Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/vendors/iconic-fonts/font-awesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/vendors/iconic-fonts/flat-icons/flaticon.css">
+    <link rel="stylesheet" href="~/vendors/iconic-fonts/cryptocoins/cryptocoins.css">
+    <link rel="stylesheet" href="~/vendors/iconic-fonts/cryptocoins/cryptocoins-colors.css">
+    <!-- Bootstrap core CSS -->
+    <link href="~/assets/cssAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery UI -->
+    <link href="~/assets/cssAdmin/css/jquery-ui.min.css" rel="stylesheet">
+    <!-- Page Specific CSS (Slick Slider.css) -->
+    <link href="~/assets/cssAdmin/css/slick.css" rel="stylesheet">
+    <link href="~/assets/cssAdmin/css/datatables.min.css" rel="stylesheet">
+    <!-- Costic styles -->
+    <link href="~/assets/cssAdmin/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assets/images/fav-icon.png">
+</head>
+
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+    <!-- Preloader -->
+    <div id="preloader-wrap">
+        <div class="spinner spinner-8">
+            <div class="ms-circle1 ms-child"></div>
+            <div class="ms-circle2 ms-child"></div>
+            <div class="ms-circle3 ms-child"></div>
+            <div class="ms-circle4 ms-child"></div>
+            <div class="ms-circle5 ms-child"></div>
+            <div class="ms-circle6 ms-child"></div>
+            <div class="ms-circle7 ms-child"></div>
+            <div class="ms-circle8 ms-child"></div>
+            <div class="ms-circle9 ms-child"></div>
+            <div class="ms-circle10 ms-child"></div>
+            <div class="ms-circle11 ms-child"></div>
+            <div class="ms-circle12 ms-child"></div>
+        </div>
+    </div>
+    <!-- Overlays -->
+    <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+    <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight"></div>
+    <!-- Sidebar Navigation Left -->
+    <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+        <!-- Logo -->
+        <div class="logo-sn ms-d-block-lg">
+            <a href="employee/index" class="pl-0 ml-0 text-center" rel="home">
+                <svg class="pizzaro-logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52.39">
+                    <path class="cls-1" d="M51.33,16.15A5.61,5.61,0,0,0,56,10.88a4,4,0,0,0-4.67-4,5.38,5.38,0,0,0-4.67,5.22A4.07,4.07,0,0,0,51.33,16.15ZM21.42,3.69C6.1,5.62,0,17.8,0,25.47a16.41,16.41,0,0,0,2.6,8.68l5.62-4.92A11,11,0,0,1,7,24.48c0-5.22,5-13,14.42-14.18,8.17-1,10.5,4.17,10.5,8.48,0,8.21-8.17,14.51-14.42,11.78l3.23-8.35A10.87,10.87,0,0,1,25,16.72l-1.54-4.39c-5.3.67-9,5.19-10.5,9.05L1.17,52.4,9.6,51.34l5.73-15.11C29.59,40.35,40,28.8,40,17.72,40,9.67,34.47,2.05,21.42,3.69ZM197,12.22c-2.17,4-4.77,6.3-7.37,7.06A25.1,25.1,0,0,0,192,9.22c0-6.18-3.55-9.47-10-8.66-8.82,1.11-13.92,9-15.71,15.8-4,7.28-6.48,10.81-7.94,11-0.74.09-2-.6,0.42-6.88l1.48-4a8,8,0,0,0,.64-2.74c0-4-6.52-6.16-8.7-7.81L154,1.49,150.53,0c-2.17,1-5,4.2-5,6.92a4,4,0,0,0,1.64,3c-1.54,3.6-3,6.83-4.19,9.06h0c-3.82,7-7.42,11.22-9.54,11.49-1,.12-1.86-0.57.53-6.89l6.58-17.14-9.92,4.87s-1.17-4.17-6.31-3.52c-6.81.86-11.07,8.78-13.14,15.62-3.48,6.34-6.05,7.74-8,8-2.7.34-4.67-1.38-7.11-1.45l15.54-16.19-2.76-3.33c-5.2,2.63-9.17.46-13.52,1-6.36.8-7.58,6.71-12,15.05h0c-3.61,6.74-6.26,8.19-8.22,8.44-2.7.34-4.67-1.38-7.11-1.45L83.56,17.34,80.81,14c-5.2,2.63-9.17.46-13.52,1-6.36.8-7.58,6.71-12,15.05h0c-3.76,7-7.42,11.22-9.54,11.49-0.9.11-1.86-.51,0.58-6.9l6.52-17.13L44.38,18.6l-6,15.62c-3.87,10.13-.48,13.54,4.35,12.94,6.1-.77,11.4-7.62,15.48-15.33h0c3.45-6.51,4.56-7.93,7-8.24,2.23-.28,4.19.48,5.83,0.6L54.51,41.31l2.76,3.33c5.57-5.28,7.05-.2,13.63-1,6.73-.85,11-7.09,15.43-15.32h0c3.45-6.51,4.56-7.93,7-8.24,2.23-.28,4.19.48,5.83,0.6L82.61,37.77l2.76,3.33c5.57-5.29,7.05-.2,13.63-1,4.39-.55,7.72-3.4,10.74-7.59,0.25,3.46,2.25,6,6,5.49,4.67-.59,8.32-5.47,8.32-5.47s0.69,4.34,6.2,3.64c6.47-.81,11.61-7.59,15.75-15.36h0a93.45,93.45,0,0,0,4.24-9.11c1.43,1,2.6,1.86,2.6,2.92a5.62,5.62,0,0,1-.48,1.93L150.64,21c-3.82,9.91.58,12.45,4.72,11.93s7.48-4.12,10.53-8.89c0.9,4.5,4.34,7,9.93,6.31a16.62,16.62,0,0,0,11.08-6.67c5.41-.25,10.23-4.43,13.1-9.75A3.52,3.52,0,0,0,197,12.22ZM125,26.2s-2.44,4.14-5.36,4.51c-1.06.13-1.7-.37-1.7-1.76,0-3.41,3.92-13.87,8.11-14.4,2.33-.29,2.39,2.68,2.39,2.68Zm57.9-12.09a4.93,4.93,0,0,0-4.51,4.83,3.79,3.79,0,0,0,1.17,2.84c-1.17,1.69-2.49,2.93-3.76,3.09S173.7,24,173.7,22.3c0-3.94,4.08-15.65,8.27-16.18C183.09,6,184,6.66,184,8.63A18.75,18.75,0,0,1,182.87,14.11Z" transform="translate(0 -0.01)"></path>
+                </svg>
+            </a>
+        </div>
+        <!-- Navigation -->
+        <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+            <!-- Dashboard -->
+            <li class="menu-item">
+                <a href="#" class="has-chevron" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                    <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
+                </a>
+                <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
+                    <li>
+                        <a href="Admin">Pizzazo</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- /Dashboard -->
+            <!-- product -->
+            <li class="menu-item">
+                <a href="#" class="has-chevron" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="product">
+                    <span><i class="fa fa-archive fs-16"></i>Menus </span>
+                </a>
+                <ul id="product" class="collapse" aria-labelledby="product" data-parent="#side-nav-accordion">
+                    <li>
+                        <a href="\Employee\ProductList">Menu Grid</a>
+                    </li>
+                    <li>
+                        <a href="\Employee\AddProduct">Add Product</a>
+                    </li>
+                    <li>
+                        <a href="\Employee\ProductDetail">Product Detail</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="has-chevron" data-toggle="collapse" data-target="#customer" aria-expanded="false" aria-controls="customer">
+                    <span><i class="fas fa-user-friends fs-16"></i>Customers </span>
+                </a>
+                <ul id="customer" class="collapse" aria-labelledby="customer" data-parent="#side-nav-accordion">
+                    <li>
+                        <a href="\Employee\RatingList">Customers Review</a>
+                    </li>
+                    <li>
+                        <a href="\Employee\CustomerList">Customers List</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="\Employee\AddProduct" class="active">
+                    <span><i class="fas fa-clipboard-list fs-16"></i>Orders</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- Main Content -->
+    @RenderBody()
+    <aside id="ms-quick-bar" class="ms-quick-bar fixed ms-d-block-lg">
+
+        <ul class="nav nav-tabs ms-quick-bar-list ui-sortable ui-sortable-disabled" role="tablist">
+            <li class="ms-quick-bar-item ms-has-qa ui-sortable-handle ui-draggable ui-draggable-handle ui-draggable-disabled" role="presentation" data-toggle="tooltip" data-placement="left" title="Settings" data-title="Settings">
+                <a href="#qa-settings" aria-controls="qa-settings" role="tab" data-toggle="tab">
+                    <i class="flaticon-gear"></i>
+
+                </a>
+            </li>
+        </ul>
+        <div class="ms-configure-qa" data-toggle="tooltip" data-placement="left" title="Configure Quick Access">
+
+            <a href="#">
+                <i class="flaticon-hammer"></i>
+
+            </a>
+
+        </div>
+
+        <!-- Quick bar Content -->
+        <div class="ms-quick-bar-content">
+            <div class="ms-quick-bar-header clearfix">
+                <h5 class="ms-quick-bar-title float-left">Title</h5>
+                <button type="button" class="close ms-toggler" data-target="#ms-quick-bar" data-toggle="hideQuickBar" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="ms-quick-bar-body tab-content">
+                <div role="tabpanel" class="tab-pane" id="qa-settings">
+                    <div class="ms-quickbar-container text-center ms-invite-member">
+                        <div class="row">
+                            <div class="col-md-12 text-left mb-5">
+                                <h4 class="section-title bold">Customize</h4>
+                                <div>
+                                    <label class="ms-switch">
+                                        <input type="checkbox" id="dark-mode">
+                                        <span class="ms-switch-slider round"></span>
+                                    </label>
+                                    <span> Dark Mode </span>
+                                </div>
+                                <div>
+                                    <label class="ms-switch">
+                                        <input type="checkbox" id="remove-quickbar">
+                                        <span class="ms-switch-slider round"></span>
+                                    </label>
+                                    <span> Remove Quickbar </span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-left">
+                                <h4 class="section-title bold">Keyboard Shortcuts</h4>
+                                <p class="ms-directions mb-0"><code>Esc</code> Close Quick Bar</p>
+                                <p class="ms-directions mb-0"><code>Alt + (1 -&gt; 6)</code> Open Quick Bar Tab</p>
+                                <p class="ms-directions mb-0"><code>Alt + Q</code> Enable Quick Bar Configure Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <script src="~/assets/cssAdmin/js/jquery-3.5.0.min.js"></script>
+    <script src="~/assets/cssAdmin/js/popper.min.js"></script>
+    <script src="~/assets/cssAdmin/js/bootstrap.min.js"></script>
+    <script src="~/assets/cssAdmin/js/perfect-scrollbar.js">
+    </script>
+    <script src="~/assets/cssAdmin/js/jquery-ui.min.js">
+    </script>
+
+    <script src="~/assets/cssAdmin/js/Chart.bundle.min.js">
+    </script>
+    <script src="~/assets/cssAdmin/js/widgets.js"> </script>
+    <script src="~/assets/cssAdmin/js/clients.js"> </script>
+    <script src="~/assets/cssAdmin/js/Chart.Financial.js"> </script>
+    <script src="~/assets/cssAdmin/js/d3.v3.min.js">
+    </script>
+    <script src="~/assets/cssAdmin/js/topojson.v1.min.js">
+    </script>
+    <script src="~/assets/cssAdmin/js/datatables.min.js">
+    </script>
+    <script src="~/assets/cssAdmin/js/data-tables.js">
+    </script>
+    <!-- Page Specific Scripts Finish -->
+    <!-- Costic core JavaScript -->
+    <script src="~/assets/cssAdmin/js/framework.js"></script>
+    <!-- Settings -->
+    <script src="~/assets/cssAdmin/js/settings.js"></script>
+</body>
+
+
+<!-- Mirrored from metropolitanhost.com/themes/themeforest/html/costic/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Mar 2022 10:32:02 GMT -->
+</html>
+
