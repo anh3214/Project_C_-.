@@ -48,25 +48,25 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.po-burger:before {
+.po-Burgers:before {
   content: "\61";
 }
-.po-drinks:before {
+.po-Drinks:before {
   content: "\62";
 }
-.po-fries:before {
+.po-Fries:before {
   content: "\63";
 }
-.po-pizza:before {
+.po-Pizza:before {
   content: "\64";
 }
-.po-salads:before {
+.po-Salads:before {
   content: "\65";
 }
-.po-tacos:before {
+.po-Tacos:before {
   content: "\66";
 }
-.po-wraps:before {
+.po-Wraps:before {
   content: "\67";
 }
 .po-add-to-cart:before {

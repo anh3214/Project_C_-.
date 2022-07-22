@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using ProjectAss.Models;
 using System.Collections.Generic;
 
@@ -13,6 +14,11 @@ namespace ProjectAss.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult AddToCart(IFormCollection collection)
+        {
+            return RedirectToAction("");
         }
     }
 }

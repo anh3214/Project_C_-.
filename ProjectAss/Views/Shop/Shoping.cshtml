@@ -34,29 +34,16 @@
                 <div class="collapse" id="products_filter_collapse">
                     <div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter">
                         <span class="gamma widget-title">Filter by price</span>
-                        <form method="get" action="#">
+                        <form method="get" action="Search">
                             <div class="price_slider_wrapper">
-                                <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
-                                    <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
-                                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
-                                </div>
                                 <div class="price_slider_amount">
-
-
-                                    <button type="submit" class="button">Filter</button>
-                                    <div class="price_label" style="">Price: <span class="from">$1</span> — <span class="to">$59</span></div>
+                                    <div style="">From:<span class="from"><input type="text"></span> 
+                                        To:<span class="to"><input type="text"></span></div>
                                     <div class="clear"></div>
-                                </div>
+                                    <button type="submit" class="button">Filter</button>
+                                </div>  
                             </div>
                         </form>
-                    </div>
-                    <div id="woocommerce_layered_nav-2" class="widget woocommerce widget_layered_nav">
-                        <span class="gamma widget-title">Food Type</span>
-                        <ul>
-                            <li class="wc-layered-nav-term "><a href="#">Meat</a> <span class="count">(7)</span></li>
-                            <li class="wc-layered-nav-term "><a href="#">Spicy</a> <span class="count">(7)</span></li>
-                            <li class="wc-layered-nav-term "><a href="#">Veg</a> <span class="count">(12)</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -71,12 +58,12 @@
                                 <div class="product-outer">
                                     <div class="product-inner">
                                         <div class="product-image-wrapper">
-                                            <a href="/Shop/Details" class="woocommerce-LoopProduct-link">
+                                            <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
                                                 <img src="~/assets/images/products/p7.jpg" class="img-responsive" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content-wrapper">
-                                            <a href="/Shop/Details" class="woocommerce-LoopProduct-link">
+                                            <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
                                                 <h3>@food.FoodName</h3>
                                                 <div itemprop="description">
                                                     <p style="max-height: none;">@food.FoodDescription</p>
@@ -96,9 +83,6 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <div class="hover-area">
-                                                <a rel="nofollow" href="Cart/list" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -126,81 +110,19 @@
                     <ul id="menu-food-menu-2" class="menu">
                         @foreach(TblCategory ca in ViewBag.category)
                         {
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-pizza"></i>@ca.TypeName</a></li>
+                            <li class="menu-item"><a href="@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
                         }
                     </ul>
                 </div>
             </div>
             <div id="search-2" class="widget widget_search">
-                <form role="search" method="get" class="search-form" action="https://transvelo.github.io/pizzaro-html/blog-single.html">
+                <form role="search" method="get" class="search-form" action="#">
                     <label>
                         <span class="screen-reader-text">Search for:</span>
                         <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
                     </label>
                     <input type="submit" class="search-submit" value="Search" />
                 </form>
-            </div>
-            <div id="woocommerce_price_filter-3" class="widget woocommerce widget_price_filter">
-                <span class="gamma widget-title">Filter by price</span>
-                <form method="get" action="#">
-                    <div class="price_slider_wrapper">
-                        <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
-                            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
-                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
-                        </div>
-                        <div class="price_slider_amount">
-
-
-                            <button type="submit" class="button">Filter</button>
-                            <div class="price_label" style="">
-                                Price: <span class="from">$1</span> — <span class="to">$59</span>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div id="woocommerce_products-2" class="widget woocommerce widget_products">
-                <span class="gamma widget-title">Best Deals</span>
-                <ul class="product_list_widget">
-                    <li>
-                        <a href="#" title="Orange Juice">
-                            <img width="180" height="180" src="~/assets/images/blog/sidebar-product-1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="28" />
-                            <span class="product-title">Orange Juice</span>
-                        </a>
-                        <span class="widget-price">
-                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1.90</span>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="#" title="Cola Bottle">
-                            <img width="180" height="180" src="~/assets/images/blog/sidebar-product-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="22" />
-                            <span class="product-title">Cola Bottle</span>
-                        </a>
-                        <span class="widget-price">
-                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>2.90</span>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="#" title="Hawaii Vegetarian Pizza">
-                            <img width="180" height="180" src="~/assets/images/blog/sidebar-product-3.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="13" />
-                            <span class="product-title">Hawaii Vegetarian Pizza</span>
-                        </a>
-                        <span class="widget-price">
-                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>39.80</span>&ndash;<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>59.90</span>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="#" title="Grand Italiano">
-                            <img width="180" height="180" src="~/assets/images/blog/sidebar-product-4.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="2" />
-                            <span class="product-title">Grand Italiano</span>
-                        </a>
-                        <span class="widget-price">
-                            <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>22.90</span></del>
-                            <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>19.90</span></ins>
-                        </span>
-                    </li>
-                </ul>
             </div>
         </div>
         <!-- #secondary -->

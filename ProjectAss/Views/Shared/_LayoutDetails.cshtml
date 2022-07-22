@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using ProjectAss.Models
+<!DOCTYPE html>
 <html lang="en-US" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
 <!-- Mirrored from transvelo.github.io/pizzaro-html/shop-sidebar-grid-3-column.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Sep 2021 08:21:56 GMT -->
@@ -57,14 +59,10 @@
                         <div class="handheld-navigation">
                             <span class="phm-close">Close</span>
                             <ul class="menu">
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-pizza"></i>Pizza</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-burger"></i>Burgers</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-tacos"></i>Tacos</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-wraps"></i>Wraps</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-fries"></i>Fries</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                                <li class="menu-item "><a href="shop-grid-3-column.html"><i class="po po-drinks"></i>Drinks</a></li>
+                                @foreach (TblCategory ca in ViewBag.category)
+                            {
+                                <li class="menu-item"><a href="@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
+                            }
                             </ul>
                         </div>
                     </nav>
@@ -87,8 +85,8 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="cart.html" title="View your shopping cart">
-                                            <span class="count">2 items</span> <span class="amount">$50.00</span>
+                                        <a href="/Cart/List" title="View your shopping cart">
+                                            <span class="count"></span>2 items<span class="amount">$50.00</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -100,14 +98,10 @@
                 <div class="pizzaro-secondary-navigation">
                     <nav class="secondary-navigation" aria-label="Secondary Navigation">
                         <ul class="menu">
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-pizza"></i>Pizza</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-burger"></i>Burgers</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-tacos"></i>Tacos</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-wraps"></i>Wraps</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-fries"></i>Fries</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                            <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-drinks"></i>Drinks</a></li>
+                            @foreach (TblCategory ca in ViewBag.category)
+                            {
+                                <li class="menu-item"><a href="@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
+                            }
                         </ul>
                     </nav>
                     <!-- #secondary-navigation -->
@@ -204,7 +198,7 @@
     <script type="text/javascript" src="~/assets/js/tether.min.js"></script>
     <script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/assets/js/owl.carousel.min.js"></script>
-
+    <script type="text/javascript" src="~/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="~/assets/js/social.share.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/assets/js/scripts.min.js"></script>
