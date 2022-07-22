@@ -8,8 +8,8 @@
     <div class="col-full">
         <div class="pizzaro-breadcrumb">
             <nav class="woocommerce-breadcrumb" itemprop="breadcrumb">
-                <a href="index.html">Home</a><span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
-                <a href="shop-grid-4-column.html">Pizza</a>
+                <a href="/Home">Home</a><span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
+                <a href="/Shop/Shoping/@Model.MenuTypeId">Pizza</a>
                 <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>@Model.FoodName
             </nav>
         </div>
@@ -61,13 +61,12 @@
                                         <td class="label"><label for="select-size">Select Size</label></td>
                                         <td class="value">
                                             <select id="select-size" class="" name="size">
-                                                <option value="">Choose an option</option>
                                                 @foreach (TblfoodSize size in ViewBag.Size)
                                                 {
-                                                    if(Model.FoodId == size.FoodId)
+                                                    if (Model.FoodId == size.FoodId)
                                                     {
                                                         <option value="@size.FoodSizeId">@size.FoodSize cm - $@size.FoodPrice</option>
-                                                    } 
+                                                    }
                                                 }
                                             </select>
                                             <a class="reset_variations" href="@Model.MenuTypeId">Clear</a>
@@ -84,7 +83,7 @@
                                             <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
                                         </div>
                                     </div>
-                                    <button type="submit" class="single_add_to_cart_button button" onclick="save1_change()">Add to cart</button>
+                                    <button type="button" class="single_add_to_cart_button button" onclick="save1_change()">Add to cart</button>
                                     <input type="hidden" name="product_id" value="@Model.FoodId">
                                 </div>
                             </div>
@@ -170,41 +169,41 @@
                         <h2 class="section-title">This Goes Great Withh</h2>
                         <div class="columns-4">
                             <ul class="products">
-                                @foreach(Tblproduct food in ViewBag.food)
+                                @foreach (Tblproduct food in ViewBag.food)
                                 {
                                     <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <div class="product-image-wrapper">
-                                                <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
-                                                    <img src="~/assets/images/products/p9.jpg" class="img-responsive" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
-                                                    <h3>@food.FoodName</h3>
-                                                    <div itemprop="description">
-                                                        <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                    </div>
-                                                    <div class="yith_wapo_groups_container">
-                                                        <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                            <h3><span>Pick Size</span></h3>
-                                                            <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                            </div>
-                                                            <div class="ywapo_input_container ywapo_input_container_radio">
+                                        <div class="product-outer">
+                                            <div class="product-inner">
+                                                <div class="product-image-wrapper">
+                                                    <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
+                                                        <img src="~/assets/images/products/p9.jpg" class="img-responsive" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content-wrapper">
+                                                    <a href="/Shop/Details/@food.FoodId/@food.MenuTypeId" class="woocommerce-LoopProduct-link">
+                                                        <h3>@food.FoodName</h3>
+                                                        <div itemprop="description">
+                                                            <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
+                                                        </div>
+                                                        <div class="yith_wapo_groups_container">
+                                                            <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
+                                                                <h3><span>Pick Size</span></h3>
+                                                                <div class="ywapo_input_container ywapo_input_container_radio">
+                                                                    <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
+                                                                </div>
+                                                                <div class="ywapo_input_container ywapo_input_container_radio">
 
-                                                                <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                                                                    <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
+                                                                    <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- /.product-outer -->
-                                </li>
+                                        <!-- /.product-outer -->
+                                    </li>
                                 }
                             </ul>
                         </div>
@@ -217,3 +216,36 @@
     </div>
     <!-- .col-full -->
 </div>
+
+<script>
+    function save1_change() {
+        var wrapper = $("#__form").closest("div");
+        $(wrapper).find('[role="alert"]').remove();
+        $.ajax({
+            url: '@Url.RouteUrl(new {controller ="Cart",action="AddToCart"})',
+            data: $("#__form").serialize(),
+            cache: false,
+            processData: false,
+            type: 'POST',
+            success: function(data) {
+                if (data == "Done") {
+                    $(wrapper).append(
+                        '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Profile information updated successfully</div>'
+                    );
+                    setTimeout(() => {
+                        $(wrapper).find('[role="alert"]').remove();
+                    }, 3000);
+                } else {
+                    if (data.search("error") !== -1)
+                        data.replace("error: ", "").split("|").forEach(err => $("[name='" + err + "']").addClass("is-invalid"));
+                    $(wrapper).append(
+                        '<div class="snackbar show" role="alert"><i class="fa fa-times-circle text-danger"></i> There is an error while updating! Please try again later.</div>'
+                    );
+                    setTimeout(() => {
+                        $(wrapper).find('[role="alert"]').remove();
+                    }, 3000);
+                }
+            }
+        });
+    }
+</script>

@@ -13,14 +13,20 @@ namespace ProjectAss.Logics
         }
         public List<Tblproduct> GetAllProductsByType(int id)
         {
+            prj_prnContext context = new prj_prnContext();
+            context.Tblproducts.ToList();
             return context.Tblproducts.Where(x => x.MenuTypeId == id).ToList();
         }
         public List<Tblproduct> GetAllProducts()
         {
+            prj_prnContext context = new prj_prnContext();
+            context.Tblproducts.ToList();
             return context.Tblproducts.ToList();
         }
-        public List<TblfoodSize> GetAllSize(int id)
+        public List<TblfoodSize> GetAllSizeOneFood(int id)
         {
+            prj_prnContext context = new prj_prnContext();
+            context.Tblproducts.ToList();
             List<TblfoodSize> Allsize = context.TblfoodSizes.ToList();
             List<Tblproduct> food = GetAllProductsByType(id);
             List<TblfoodSize> size = new List<TblfoodSize>();
@@ -35,6 +41,18 @@ namespace ProjectAss.Logics
                 }              
             }
             return size;
+        }
+        public TblfoodSize GetAllSize(int id)
+        {
+            prj_prnContext context = new prj_prnContext();
+            context.Tblproducts.ToList();
+            return context.TblfoodSizes.FirstOrDefault(x => x.FoodSizeId == id);
+        }
+        public Tblproduct GetOneProduct(int id)
+        {
+            prj_prnContext context = new prj_prnContext();
+            context.Tblproducts.ToList();
+            return context.Tblproducts.Where(x => x.FoodId == id).FirstOrDefault();
         }
     }
 }

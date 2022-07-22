@@ -82,41 +82,11 @@
                         </ul>
                     </div>
                 </nav>
-
                 <!-- #site-navigation -->
                 <ul class="site-header-cart menu">
                     <li class="mini-cart">
                         <div class="mini-cart-toggle">
-                            <a class="cart-contents" href="Cart/list" title="View your shopping cart"><span class="amount"><span class="price-label">Your Cart:</span>$25.90</span> <span class="count">1</span></a>
-                            <div class="widget woocommerce widget_shopping_cart">
-                                <div class="widget_shopping_cart_content">
-                                    <ul class="cart_list product_list_widget ">
-                                        <li class="mini_cart_item">
-                                            <a href="#" class="remove" title="Remove this item" data-product_id="51" data-product_sku="">×</a>
-                                            <a href="single-product-v1.html">
-                                                <img alt="" width="180" height="180" src="~/assets/images/products/mini.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">Chicken Hawaii&nbsp;
-                                            </a>
-                                            <dl class="variation">
-                                                <dt class="variation-Baseprice">Base price:</dt>
-                                                <dd class="variation-Baseprice">
-                                                    <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>0.00</span></p>
-                                                </dd>
-                                                <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span> ):</dt>
-                                                <dd class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">
-                                                    <p>29  cm</p>
-                                                </dd>
-                                            </dl>
-                                            <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span></span>
-                                        </li>
-                                    </ul>
-                                    <!-- end product list -->
-                                    <p class="total"><strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span></p>
-                                    <p class="buttons">
-                                        <a href="Cart/list" class="button wc-forward">View Cart</a>
-                                        <a href="checkout.html" class="button checkout wc-forward">Checkout</a>
-                                    </p>
-                                </div>
-                            </div>
+                            <a class="cart-contents" href="Cart/list" title="View your shopping cart"><span class="amount"><span class="price-label">Your Cart:</span></span> <span class="count">@ViewBag.count</span></a>
                         </div>
                     </li>
                 </ul>
@@ -127,6 +97,29 @@
         </div>
         <footer id="colophon" class="site-footer footer-v4">
             <div class="col-full">
+                <div class="pizzaro-handheld-footer-bar">
+                  <ul class="columns-3">
+                     <li class="my-account"><a href="#">My Account</a></li>
+                     <li class="search">
+                        <a href="#">Search</a>
+                        <div class="site-search">
+                           <div class="widget woocommerce widget_product_search">
+                              <form role="search" method="get" class="woocommerce-product-search">
+                                 <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
+                                 <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="Search Products…" value="" name="s" title="Search for:">
+                                 <input type="submit" value="Search">
+                                 <input type="hidden" name="post_type" value="product">
+                              </form>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="cart">
+                        <a class="footer-cart-contents" href="#" title="View your shopping cart">
+                        <span class="count">@ViewBag.count</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
                 <div class="footer-row row vertical-align">
                     <div class="footer-logo">
                         <a href="index.html" class="custom-logo-link" rel="home">

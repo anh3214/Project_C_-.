@@ -14,6 +14,15 @@ namespace ProjectAss.Controllers
             CategoryManager cate = new CategoryManager();
             List<TblCategory> list = cate.GetAllCategory();
             string cus = HttpContext.Session.GetString("cus");
+            string cartcheck = HttpContext.Session.GetString("cart");
+            Dictionary<int, int> cart = new Dictionary<int, int>();
+            int count = 0;
+            if (cartcheck != null)
+            {
+                cart = JsonConvert.DeserializeObject<Dictionary<int, int>>(cartcheck);
+                count = cart.Count;
+            }
+            ViewBag.count = count;
             if (cus != null)
             {
                 Tblcustomer a = JsonConvert.DeserializeObject<Tblcustomer>(cus);

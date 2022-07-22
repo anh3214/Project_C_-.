@@ -9,6 +9,7 @@ namespace ProjectAss.Models
     {
         public Tblproduct()
         {
+            TblfoodSizes = new HashSet<TblfoodSize>();
             Tblorderdetails = new HashSet<Tblorderdetail>();
             Tblratings = new HashSet<Tblrating>();
         }
@@ -21,6 +22,7 @@ namespace ProjectAss.Models
         public string FoodImage { get; set; }
 
         public virtual TblCategory MenuType { get; set; }
+        public virtual ICollection<TblfoodSize> TblfoodSizes { get; set; }
         public virtual ICollection<Tblorderdetail> Tblorderdetails { get; set; }
         public virtual ICollection<Tblrating> Tblratings { get; set; }
     }

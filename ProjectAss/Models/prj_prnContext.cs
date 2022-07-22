@@ -44,7 +44,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<TblCategory>(entity =>
             {
                 entity.HasKey(e => e.FoodTypeId)
-                    .HasName("PK__tblCateg__B6ACC8D2A7526CC2");
+                    .HasName("PK__tblCateg__B6ACC8D222B8E066");
 
                 entity.ToTable("tblCategory");
 
@@ -68,11 +68,11 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblcustomer>(entity =>
             {
                 entity.HasKey(e => e.CustomerId)
-                    .HasName("PK__tblcusto__CD65CB85CD6AFECD");
+                    .HasName("PK__tblcusto__CD65CB855765985E");
 
                 entity.ToTable("tblcustomer");
 
-                entity.HasIndex(e => e.CustomerUsername, "UQ__tblcusto__64E4CB016C74088D")
+                entity.HasIndex(e => e.CustomerUsername, "UQ__tblcusto__64E4CB01FD0E83F7")
                     .IsUnique();
 
                 entity.Property(e => e.CustomerId).HasColumnName("customer_id");
@@ -129,11 +129,11 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblemployee>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__tblemplo__B9BE370F8CDBC4E8");
+                    .HasName("PK__tblemplo__B9BE370F816CA78F");
 
                 entity.ToTable("tblemployee");
 
-                entity.HasIndex(e => e.Username, "UQ__tblemplo__F3DBC57248659250")
+                entity.HasIndex(e => e.Username, "UQ__tblemplo__F3DBC5727805AE45")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
@@ -171,7 +171,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<TblfoodSize>(entity =>
             {
                 entity.HasKey(e => e.FoodSizeId)
-                    .HasName("PK__tblfood___41CCCD007C3A3C61");
+                    .HasName("PK__tblfood___41CCCD00205CB998");
 
                 entity.ToTable("tblfood_size");
 
@@ -185,12 +185,18 @@ namespace ProjectAss.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("food_size");
+
+                entity.HasOne(d => d.Food)
+                    .WithMany(p => p.TblfoodSizes)
+                    .HasForeignKey(d => d.FoodId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblfood_size_tblproducts");
             });
 
             modelBuilder.Entity<Tblorder>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__tblorder__4659622929B78A64");
+                    .HasName("PK__tblorder__46596229F84CC04B");
 
                 entity.ToTable("tblorder");
 
@@ -224,7 +230,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblorderdetail>(entity =>
             {
                 entity.HasKey(e => e.OrderDetailsId)
-                    .HasName("PK__tblorder__F6FB5AE4ECA4D7E7");
+                    .HasName("PK__tblorder__F6FB5AE452752AEE");
 
                 entity.ToTable("tblorderdetails");
 
@@ -252,7 +258,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblpayment>(entity =>
             {
                 entity.HasKey(e => e.PaymentId)
-                    .HasName("PK__tblpayme__ED1FC9EA1E39496F");
+                    .HasName("PK__tblpayme__ED1FC9EA996B18B7");
 
                 entity.ToTable("tblpayment");
 
@@ -288,7 +294,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblproduct>(entity =>
             {
                 entity.HasKey(e => e.FoodId)
-                    .HasName("PK__tblprodu__2F4C4DD81277D321");
+                    .HasName("PK__tblprodu__2F4C4DD83CAC0DEE");
 
                 entity.ToTable("tblproducts");
 
@@ -323,7 +329,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblrating>(entity =>
             {
                 entity.HasKey(e => e.RatingId)
-                    .HasName("PK__tblratin__D35B278BEC0C5DBE");
+                    .HasName("PK__tblratin__D35B278B3D3F845A");
 
                 entity.ToTable("tblrating");
 
@@ -358,7 +364,7 @@ namespace ProjectAss.Models
             modelBuilder.Entity<Tblsiteinfo>(entity =>
             {
                 entity.HasKey(e => e.SiteInfoId)
-                    .HasName("PK__tblsitei__866ED2E463354088");
+                    .HasName("PK__tblsitei__866ED2E4DC662130");
 
                 entity.ToTable("tblsiteinfo");
 

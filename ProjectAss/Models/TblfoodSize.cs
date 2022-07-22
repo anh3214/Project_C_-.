@@ -11,5 +11,7 @@ namespace ProjectAss.Models
         public int FoodId { get; set; }
         public string FoodSize { get; set; }
         public float FoodPrice { get; set; }
+
+        public virtual Tblproduct Food { get; set; }
     }
 }

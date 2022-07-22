@@ -61,7 +61,7 @@
                             <ul class="menu">
                                 @foreach (TblCategory ca in ViewBag.category)
                             {
-                                <li class="menu-item"><a href="@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
+                                <li class="menu-item"><a href="/Shop/Shoping/@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
                             }
                             </ul>
                         </div>
@@ -100,7 +100,7 @@
                         <ul class="menu">
                             @foreach (TblCategory ca in ViewBag.category)
                             {
-                                <li class="menu-item"><a href="@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
+                                <li class="menu-item"><a href="/Shop/Shoping/@ca.FoodTypeId"><i class="po po-@ca.TypeName"></i>@ca.TypeName</a></li>
                             }
                         </ul>
                     </nav>
@@ -134,6 +134,29 @@
     </div>
     <footer id="colophon" class="site-footer footer-v1">
         <div class="col-full">
+            <div class="pizzaro-handheld-footer-bar">
+                  <ul class="columns-3">
+                     <li class="my-account"><a href="#">My Account</a></li>
+                     <li class="search">
+                        <a href="#">Search</a>
+                        <div class="site-search">
+                           <div class="widget woocommerce widget_product_search">
+                              <form role="search" method="get" class="woocommerce-product-search">
+                                 <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
+                                 <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="Search Products…" value="" name="s" title="Search for:">
+                                 <input type="submit" value="Search">
+                                 <input type="hidden" name="post_type" value="product">
+                              </form>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="cart">
+                        <a class="footer-cart-contents" href="#" title="View your shopping cart">
+                        <span class="count">@ViewBag.count</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
             <div class="footer-social-icons">
                 <span class="social-icon-text">Follow us</span>
                 <ul class="social-icons list-unstyled">
